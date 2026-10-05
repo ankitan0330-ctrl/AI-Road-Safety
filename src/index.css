@@ -1,0 +1,823 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f7fb;
+  color: #172033;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+  height: 72px;
+  background: #10263d;
+  color: white;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 30px;
+  gap: 35px;
+}
+
+.logo {
+  font-size: 23px;
+  color: #19c77a;
+  white-space: nowrap;
+}
+
+.logo b {
+  color: white;
+}
+
+.tagline {
+  color: #d9e2ec;
+  font-size: 14px;
+}
+
+.header nav {
+  margin-left: auto;
+
+  display: flex;
+  gap: 28px;
+
+  font-size: 14px;
+}
+
+.header nav span {
+  cursor: pointer;
+}
+
+
+/* ================= MAIN ================= */
+
+main {
+  display: grid;
+
+  grid-template-columns: 290px 1fr 290px;
+
+  gap: 16px;
+
+  padding: 18px;
+}
+
+
+/* ================= LEFT PANEL ================= */
+
+.search-panel,
+.safety-panel {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 3px 15px #00000012;
+}
+
+.search-panel h1 {
+  margin-top: 0;
+
+  font-size: 21px;
+}
+
+.search-panel > p {
+  color: #66758a;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.search-panel label {
+  display: block;
+
+  margin-top: 18px;
+  margin-bottom: 7px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+.search-panel select {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #d5dfeb;
+
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+/* FIND BUTTON */
+
+.find-button {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #087cf0;
+
+  color: white;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.find-button:hover {
+  background: #0569cf;
+}
+
+
+/* QUICK OPTIONS */
+
+.search-panel hr {
+  border: none;
+
+  border-top: 1px solid #e4e9ef;
+
+  margin: 22px 0;
+}
+
+.search-panel h3 {
+  font-size: 16px;
+}
+
+.location-button {
+  width: 100%;
+
+  padding: 11px;
+
+  background: #eef7ff;
+
+  color: #087cf0;
+
+  border: 1px solid #cce5ff;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.location-button:hover {
+  background: #dceeff;
+}
+
+.location-success {
+  color: #07945b !important;
+
+  font-size: 12px !important;
+
+  font-weight: bold;
+}
+
+.history {
+  color: #59677b;
+
+  cursor: pointer;
+}
+
+
+/* ================= MAP ================= */
+
+.map {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 10px;
+
+  box-shadow: 0 3px 15px #00000012;
+
+  min-width: 0;
+}
+
+.map-top {
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 3px 6px;
+}
+
+.map-tabs {
+  display: flex;
+
+  background: white;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 8px #00000015;
+}
+
+.map-tabs button {
+  border: none;
+
+  background: #087cf0;
+
+  color: white;
+
+  padding: 9px 20px;
+
+  font-weight: bold;
+}
+
+.map-tabs span {
+  padding: 9px 20px;
+
+  color: #536176;
+}
+
+.legend {
+  margin-left: auto;
+
+  display: flex;
+
+  gap: 13px;
+
+  font-size: 11px;
+
+  font-weight: bold;
+}
+
+
+/* MAP AREA */
+
+.map-area {
+  height: 600px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 9px;
+
+  background:
+    radial-gradient(
+      circle at 25% 30%,
+      #d8efcf 0,
+      #c9e5bf 25%,
+      transparent 26%
+    ),
+    linear-gradient(
+      135deg,
+      #bde3ef,
+      #dcefcf 45%,
+      #c8e6bf
+    );
+}
+
+
+/* FAKE MAP ROADS */
+
+.map-area::before {
+  content: "";
+
+  position: absolute;
+
+  width: 140%;
+
+  height: 6px;
+
+  background: #e5b58b;
+
+  top: 48%;
+
+  left: -20%;
+
+  transform: rotate(-25deg);
+
+  opacity: 0.8;
+}
+
+.map-area::after {
+  content: "";
+
+  position: absolute;
+
+  width: 140%;
+
+  height: 5px;
+
+  background: #e8c59d;
+
+  top: 62%;
+
+  left: -20%;
+
+  transform: rotate(25deg);
+
+  opacity: 0.8;
+}
+
+
+/* ================= ROUTES ON MAP ================= */
+
+.map-route {
+  position: absolute;
+
+  width: 9px;
+
+  height: 500px;
+
+  border-radius: 20px;
+
+  left: 50%;
+
+  top: 55px;
+
+  transform-origin: center;
+
+  cursor: pointer;
+
+  z-index: 3;
+
+  transition: 0.3s;
+}
+
+
+/* GREEN ROUTE */
+
+.route-green {
+  background: #12b76a;
+
+  transform: rotate(13deg);
+
+  left: 50%;
+}
+
+
+/* YELLOW ROUTE */
+
+.route-yellow {
+  background: #f2b01e;
+
+  transform: rotate(25deg);
+
+  left: 45%;
+
+  opacity: 0.75;
+}
+
+
+/* RED ROUTE */
+
+.route-red {
+  background: #ef4444;
+
+  transform: rotate(-7deg);
+
+  left: 56%;
+
+  opacity: 0.75;
+}
+
+
+/* SELECTED ROUTE */
+
+.active-route {
+  width: 13px;
+
+  box-shadow:
+    0 0 0 3px #ffffffaa,
+    0 0 15px currentColor;
+
+  z-index: 8;
+}
+
+
+/* ================= MAP PLACES ================= */
+
+.map-place {
+  position: absolute;
+
+  z-index: 10;
+
+  font-weight: bold;
+
+  background: #ffffffd9;
+
+  padding: 4px 8px;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+}
+
+.pune {
+  top: 65px;
+
+  right: 34%;
+}
+
+.satara {
+  top: 260px;
+
+  right: 45%;
+}
+
+.sangli {
+  top: 375px;
+
+  left: 32%;
+}
+
+.kolhapur {
+  bottom: 65px;
+
+  left: 40%;
+}
+
+
+/* ================= HAZARDS ================= */
+
+.map-hazard {
+  position: absolute;
+
+  z-index: 12;
+
+  font-size: 23px;
+
+  cursor: pointer;
+}
+
+.hazard-one {
+  top: 230px;
+
+  left: 55%;
+}
+
+.hazard-two {
+  top: 350px;
+
+  left: 48%;
+}
+
+
+/* ================= ROUTE LABELS ================= */
+
+.route-label {
+  position: absolute;
+
+  z-index: 15;
+
+  padding: 5px 9px;
+
+  border-radius: 15px;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  color: white;
+}
+
+.green-label {
+  background: #12b76a;
+
+  top: 160px;
+
+  left: 54%;
+}
+
+.yellow-label {
+  background: #e8a800;
+
+  top: 310px;
+
+  left: 39%;
+}
+
+.red-label {
+  background: #ef4444;
+
+  top: 420px;
+
+  left: 57%;
+}
+
+
+/* MAP WATERMARK */
+
+.map-watermark {
+  position: absolute;
+
+  bottom: 12px;
+
+  left: 12px;
+
+  color: #ffffff;
+
+  background: #087cf0aa;
+
+  padding: 5px 9px;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+}
+
+
+/* ================= SAFETY PANEL ================= */
+
+.score {
+  background: #dff8ea;
+
+  padding: 18px;
+
+  border-radius: 10px;
+}
+
+.score h3 {
+  margin-top: 0;
+
+  font-size: 15px;
+}
+
+.score strong {
+  display: block;
+
+  font-size: 32px;
+
+  color: #07945b;
+
+  margin: 8px 0;
+}
+
+.score span {
+  display: inline-block;
+
+  background: #10ad68;
+
+  color: white;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+}
+
+.info {
+  padding: 12px 0;
+}
+
+.info p {
+  margin: 0 0 5px;
+
+  color: #63728a;
+
+  font-size: 13px;
+}
+
+.info b {
+  color: #07945b;
+}
+
+.time {
+  margin: 17px 0;
+
+  color: #536176;
+
+  font-size: 13px;
+}
+
+.time strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #172033;
+
+  font-size: 17px;
+}
+
+.safety-panel hr {
+  border: none;
+
+  border-top: 1px solid #e1e7ed;
+}
+
+.safe-message {
+  margin-top: 20px;
+
+  padding: 14px;
+
+  background: #e5f7ed;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* ================= ROUTES ================= */
+
+.routes {
+  padding: 0 18px 35px;
+}
+
+.routes h2 {
+  font-size: 20px;
+}
+
+.route-cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+.card {
+  background: white;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 3px 15px #00000012;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 20px #00000018;
+}
+
+.card.green {
+  border-color: #d8f3e5;
+}
+
+.card.yellow {
+  border-color: #f7e6b4;
+}
+
+.card.red {
+  border-color: #f5cccc;
+}
+
+.selected-card {
+  border: 2px solid #12b76a !important;
+}
+
+.card-title {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.card h3 {
+  font-size: 15px;
+
+  margin: 0;
+}
+
+.card h2 {
+  color: #087cf0;
+
+  font-size: 22px;
+}
+
+.card p {
+  color: #59677b;
+
+  font-size: 13px;
+}
+
+.recommended {
+  background: #12b76a;
+
+  color: white;
+
+  padding: 5px 9px;
+
+  border-radius: 15px;
+
+  font-size: 10px;
+}
+
+.recommended-button {
+  border: none;
+
+  background: #12b76a;
+
+  color: white;
+
+  padding: 8px 14px;
+
+  border-radius: 7px;
+
+  font-weight: bold;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+  main {
+    grid-template-columns: 250px 1fr;
+  }
+
+  .safety-panel {
+    grid-column: 1 / -1;
+  }
+
+  .map-area {
+    height: 550px;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .header {
+    height: auto;
+
+    padding: 18px;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  .header nav {
+    margin-left: 0;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .route-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .map-area {
+    height: 500px;
+  }
+
+  .legend {
+    display: none;
+  }
+}
+.leaflet-container {
+  width: 100% !important;
+  height: 650px !important;
+}
+
+.map-container {
+  width: 100%;
+  height: 650px !important;
+  min-height: 650px;
+}
